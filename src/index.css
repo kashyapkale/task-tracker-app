@@ -1,0 +1,238 @@
+/*React Ts App Css*/
+:root {
+    --bg-color: #1a1a1a;
+    --surface-color: #2c2c2c;
+    --primary-color: #6a82fb;
+    --text-color: #f0f0f0;
+    --text-muted-color: #888;
+    --border-color: #444;
+    --success-color: #4caf50;
+    --font-family: 'Inter', sans-serif;
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    margin: 0;
+    margin-left: -452px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 90vh;
+    padding: 2rem;
+}
+
+.app-container {
+    display: flex;
+    gap: 2rem;
+    width: 157.5%;
+    max-width: 1500px;
+}
+
+.task-section {
+    flex: 1;
+    background-color: var(--surface-color);
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+.task-section header h1 {
+    margin: 0 0 0.5rem 0;
+}
+
+.task-section header p {
+    color: var(--text-muted-color);
+    margin: 0 0 2rem 0;
+}
+
+#add-task-form {
+    display: flex;
+    margin-bottom: 1.5rem;
+}
+
+#task-input {
+    flex-grow: 1;
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 8px 0 0 8px;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-size: 1rem;
+    outline: none;
+}
+#task-input:focus {
+    border-color: var(--primary-color);
+}
+
+#add-task-form button {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    background-color: var(--primary-color);
+    color: white;
+    font-weight: 500;
+    border-radius: 0 8px 8px 0;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+#add-task-form button:hover {
+    background-color: #5568d7;
+}
+
+.session-controls {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+#start-day-btn {
+    width: 100%;
+    padding: 0.75rem;
+    font-size: 1.1rem;
+    font-weight: bold;
+    background-color: var(--success-color);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s, opacity 0.2s;
+}
+#start-day-btn:disabled {
+    background-color: var(--text-muted-color);
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+#task-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.task-item {
+    display: flex;
+    align-items: center;
+    background-color: var(--bg-color);
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 0.75rem;
+    transition: all 0.3s ease;
+}
+
+.task-item.done .task-text {
+    text-decoration: line-through;
+    color: var(--text-muted-color);
+}
+
+.task-text {
+    flex-grow: 1;
+    margin-right: 1rem;
+}
+
+.task-item .done-btn {
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--success-color);
+    color: var(--success-color);
+    background-color: transparent;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+.task-item .done-btn:hover {
+    background-color: var(--success-color);
+    color: white;
+}
+.task-item.done .done-btn {
+    opacity: 0.5;
+    cursor: not-allowed;
+    background-color: var(--success-color);
+    color: white;
+}
+
+/* Calendar Section */
+.calendar-section {
+    flex-basis: 400px;
+    background-color: var(--surface-color);
+    padding: 2rem;
+    border-radius: 16px;
+}
+
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+.calendar-header button {
+    background: none;
+    border: none;
+    color: var(--text-color);
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 0.5rem;
+    text-align: center;
+}
+
+.calendar-day {
+    padding: 0.5rem;
+    border-radius: 50%;
+    position: relative;
+}
+
+.day-name {
+    color: var(--text-muted-color);
+    font-weight: bold;
+    padding-bottom: 0.5rem;
+}
+
+.calendar-day.other-month {
+    color: var(--text-muted-color);
+}
+.calendar-day.today {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.calendar-day.completed::after {
+    content: '';
+    position: absolute;
+    bottom: 4px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: var(--success-color);
+}
+
+.legend {
+    margin-top: 1.5rem;
+    font-size: 0.9rem;
+    color: var(--text-muted-color);
+    text-align: center;
+}
+.legend-dot {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-right: 8px;
+    vertical-align: middle;
+}
+.legend-dot.completed {
+    background-color: var(--success-color);
+}
+
+@media (max-width: 1500px) {
+    .app-container {
+        flex-direction: column;
+    }
+    .calendar-section {
+        flex-basis: auto;
+    }
+}
